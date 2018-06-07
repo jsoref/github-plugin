@@ -1,11 +1,17 @@
 <div>
     <p>
-        This value will be used as context name for
-        <a href="https://developer.github.com/v3/repos/statuses/">commit status</a> if status builder or
-        status publisher is defined for this project. It should be small and clear.
+        For use with
+        (Build) <strong>Set build status to "pending" on GitHub commit</strong> and
+        (Post-Build Actions) <strong>Set GitHub commit status (universal)</strong>.
+        This value sets the GitHub context name for
+        the <a href="https://developer.github.com/v3/repos/statuses/">commit status</a>.
     </p>
 
     <p>
-        If you leave it empty, job name will be used for builder and publisher.
+        It should be short but clear.
+    </p>
+
+    <p>
+        If you leave it empty, by default, the job name will be used for builder and publisher.
     </p>
 </div>
