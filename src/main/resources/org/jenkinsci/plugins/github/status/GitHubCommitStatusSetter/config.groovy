@@ -3,12 +3,25 @@ package org.jenkinsci.plugins.github.status.GitHubCommitStatusSetter
 import org.apache.commons.collections.CollectionUtils
 import org.jenkinsci.plugins.github.extension.status.StatusErrorHandler
 
+import org.jenkinsci.plugins.github.status.source.ManuallyEnteredRepositorySource;
 
 def f = namespace(lib.FormTagLib);
 
-f.section(title: _('Where:')) {
+f.section(title: _('Report status to this repository and commit:')) {
+    f.optionalBlock(
+        name: 'reposSourceX',
+        title: _('Repositories: '),
+        checked: '${it.reposSource!=ManuallyEnteredRepositorySource}',
+        field: 'repoSourceY',
+        inline: 'true') {
+        f.entry(
+            title: "Repository:",
+            field: "repoSource")
+        {
+            f.textbox()
+        }
+    }
     f.dropdownDescriptorSelector(title: _('Commit SHA: '), field: 'commitShaSource')
-    f.dropdownDescriptorSelector(title: _('Repositories: '), field: 'reposSource')
 }
 
 f.section(title: _('What:')) {
